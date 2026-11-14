@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dpbjdmwkdkgox"]
+
+[ext_resource type="Script" uid="uid://c3ua7j6ajxdmp" path="res://projectile.gd" id="1_a85iw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f151q"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(22, 21.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f151q"]
+size = Vector2(21, 21)
+
+[node name="projectile" type="RigidBody2D" unique_id=1976915307]
+position = Vector2(0, 1)
+collision_layer = 2
+mass = 0.651
+physics_material_override = SubResource("PhysicsMaterial_f151q")
+gravity_scale = 0.0
+can_sleep = false
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_a85iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1891217474]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=868754420]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 11.0
+offset_bottom = 11.0
+color = Color(0, 1, 1, 1)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1242029316]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1518441284]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_f151q")
